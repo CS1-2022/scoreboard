@@ -1,0 +1,123 @@
+/* import statements */
+@import url("https://fonts.googleapis.com/css2?family=Keania+One&display=swap");
+
+
+/* css variables */
+:root{
+    --score-clr: #ff8f8f;
+    --score-glow: #fa3030;
+    --clock-clr: #f7df2c;
+    --clock-glow: #e3a702;
+    --base-text-clr: #f7f7f7;
+    --digital-bg: #1e1e1e;
+    --scoreboard-bg: #078a28;
+}
+
+/* basic reset */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.box {border: 3px solid pink;} 
+
+/* utility classes */
+.digital-display{
+    background-color: var(--digital-bg);
+    font-family: "Keania One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    padding: .5rem 1rem;
+}
+.lg{
+    font-size: 9rem;
+}
+.sm{
+    font-size: 5rem;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    margin:0 auto;
+}
+.col{
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+}
+
+.score-txt{
+    color: var(--score-clr);
+    text-shadow: 0px 0px 15px var(--score-glow);
+}
+.clock-txt{
+    color: var(--clock-clr);
+    text-shadow: 0px 0px 15px var(--clock-glow);
+}
+.clock{
+    color:var(--base-text-clr);
+}
+
+h2, h3, h4{
+    color: var(--base-text-clr);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+h2 {
+    font-size: 3.5rem;
+}
+
+/* grid layout */
+.container{
+    display:grid;
+    grid-template-columns: 2fr repeat(3, 1fr) 2fr;
+    grid-template-areas: 
+        "hs ck ck ck vs"
+        "hs x1 pd x2 vs"
+        "hb hb pd vb vb"
+        "hf pf pf pf vf"
+    ;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background-color: var(--scoreboard-bg);
+    padding: .75rem 1rem;
+    gap: .75rem;
+    min-height: 40vh;
+}
+
+#home-score{
+    grid-area: hs;
+}
+
+#clock{
+    grid-area: ck;
+}
+
+#visitor-score{
+    grid-area: vs;
+}
+
+#home-bonus{
+    grid-area: hb;
+}
+
+#period{
+    grid-area: pd;
+}
+#visitor-bonus{
+    grid-area: vb;
+}
+#home-fouls{
+    grid-area: hf;
+}
+#player-fouls{
+    grid-area: pf;
+}
+#visitor-fouls{
+    grid-area: vf;
+}
